@@ -9,6 +9,31 @@
 <body>
 
     <h1>구매 물품 리스트</h1>
+    <h2>물품 추가</h2>
+    <input type="text" id="name" placeholder="물품 이름">
+    <input type="text" id="category" placeholder="카테고리">
+    <input type="text" id="quantity" placeholder="수량">
+    <select id="status">
+        <option value="">구매 여부 선택</option>
+        <option value="구매 예정">구매 예정</option>
+        <option value="구매 완료">구매 완료</option>
+    </select>
+    <button id="addbtn">Add</button>
 
+    <h2>구매 물품 목록</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>물품 이름</th>
+                <th>카테고리</th>
+                <th>수량</th>
+                <th>구매 여부</th>
+                <th>관리</th>
+            </tr>
+        </thead>
+        <tbody id="list">
+        </tbody>
+    </table>
 </body>
 </html>
