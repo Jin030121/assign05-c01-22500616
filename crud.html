@@ -75,6 +75,7 @@
                 <td>${item.status}</td>
                 <td>
                     <button onclick="editItem(${item.id})">수정</button>
+                    <button onclick="deleteItem(${item.id})">삭제</button>
                 </td>
             `;
             itemList.appendChild(tr);
@@ -90,6 +91,17 @@
         document.querySelector("#category").value = item.category;
         document.querySelector("#quantity").value = item.quantity;
         document.querySelector("#status").value = item.status;
+    }
+
+    function deleteItem(id){
+        const result = confirm("정말 삭제하시겠습니까?");
+        if(result === false){
+            return;
+        }
+        items = items.filter(function(item){
+            return item.id !== id;
+        });
+        render();
     }
 
     const addbtn=document.querySelector("#addbtn");
