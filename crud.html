@@ -172,14 +172,15 @@
             editId = null;
         }
         else{
-            const newItem={
-                id:items.length+1,
+            const newId = items.length === 0 ? 1 : Math.max(...items.map(function(item){return item.id;})) + 1;
+            const newItem = {
+                id:newId,
                 name:name,
                 category:category,
                 quantity:quantity,
                 status:status
-            };
-            
+            }; 
+
             items.push(newItem);
         }
             document.querySelector("#name").value="";
