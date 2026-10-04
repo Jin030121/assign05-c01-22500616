@@ -60,5 +60,23 @@
             status:"구매 완료"
         }
     ];
+
+    function render(){
+        const itemList=document.querySelector("#itemList");
+        itemList.innerHTML="";
+        item.forEach(function(item){
+            const tr=document.createElement("tr");
+            tr.innerHTML=`
+                <td>${item.id}</td>
+                <td>${item.name}</td>
+                <td>${item.category}</td>
+                <td>${item.quantity}</td>
+                <td>${item.status}</td>
+                <td></td>
+            `;
+            itemList.appendChild(tr);
+        })
+    }
+    render();
 </script>
 </html>
