@@ -32,7 +32,7 @@
                 <th>관리</th>
             </tr>
         </thead>
-        <tbody id="list">
+        <tbody id="itemList">
         </tbody>
     </table>
 </body>
@@ -64,7 +64,7 @@
     function render(){
         const itemList=document.querySelector("#itemList");
         itemList.innerHTML="";
-        item.forEach(function(item){
+        items.forEach(function(item){
             const tr=document.createElement("tr");
             tr.innerHTML=`
                 <td>${item.id}</td>
@@ -77,6 +77,28 @@
             itemList.appendChild(tr);
         })
     }
+    const addbtn=document.querySelector("#addbtn");
+    addbtn.addEventListener("click",function(){
+        const name=document.querySelector("#name").value;
+        const category=document.querySelector("#category").value;
+        const quantity=document.querySelector("#quantity").value;
+        const status=document.querySelector("#status").value;
+
+        const newItem={
+            id:items.length+1,
+            name:name,
+            category:category,
+            quantity:quantity,
+            status:status
+        };
+            items.push(newItem);
+
+            document.querySelector("#name").value="";
+            document.querySelector("#category").value="";
+            document.querySelector("#quantity").value="";
+            document.querySelector("#status").value="";
+            render();
+    });
     render();
 </script>
 </html>
