@@ -111,6 +111,23 @@
         const quantity=document.querySelector("#quantity").value;
         const status=document.querySelector("#status").value;
         
+        if(name.trim() ===""){
+            alert("물품 이름을 입력하세요.");
+            return;
+        }
+        if(category.trim() ===""){
+            alert("카테고리를 입력하세요.");
+            return;
+        }
+        if(quantity<1){
+            alert("수량은 1 이상이어야 합니다.");
+            return;
+        }
+        if(status.trim() ===""){
+            alert("구매 여부를 선택하세요.");
+            return;
+        }
+
         if(editId !== null){
             const item = items.find(function(item){
                 return item.id === editId;
